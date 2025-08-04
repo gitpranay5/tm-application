@@ -1,0 +1,19 @@
+# This is my application ci workflow file
+
+name: CI
+
+on:
+    workflow_dispatch:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+
+jobs:
+    build:
+      uses: gitpranay5/tm-reusable/.github/workflows/app-build.yml@main
+      with:
+        language: java
+        version: 17
