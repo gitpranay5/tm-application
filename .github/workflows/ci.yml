@@ -15,5 +15,5 @@ jobs:
     build:
       uses: gitpranay5/tm-reusable/.github/workflows/app-build.yml@main
       with:
-        language: java
-        version: 17
+        language: python
+        version: 3.10
