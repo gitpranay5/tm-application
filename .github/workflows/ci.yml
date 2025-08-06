@@ -2,6 +2,10 @@
 
 name: CI
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
     workflow_dispatch:
     push:
@@ -10,6 +14,8 @@ on:
     pull_request:
       branches:
         - main
+      types: [opened, synchronize, reopened]
+
 
 jobs:
     build:
