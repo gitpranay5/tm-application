@@ -1,0 +1,15 @@
+# This is a template for service configuration, which have the metadata and settings for the services.
+
+service:
+  - name: tm-application
+    description: This is the configuration for the tm-application service.
+    version: 1.0.0
+    language: multi-language
+
+build:
+    build_path: java
+    build_file: pom.xml
+
+git:
+    user-name: pranay
+    user-email: ex@gmail.com
