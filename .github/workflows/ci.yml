@@ -19,7 +19,7 @@ on:
 
 jobs:
     build:
-      uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@main
+      uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@feature
       with:
         version: 17
 
