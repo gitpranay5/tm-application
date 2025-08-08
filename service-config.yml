@@ -5,10 +5,11 @@ service:
     description: This is the configuration for the tm-application service.
     version: 1.0.0
     language: multi-language
-
-build:
-    build_path: java
-    build_file: pom.xml
+    
+project:
+    project_dir: java
+    project_file: pom.xml
+    version: 17
 
 git:
     user-name: pranay
