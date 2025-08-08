@@ -9,7 +9,8 @@ service:
 project:
     project_dir: java
     project_file: pom.xml
-    version: 17
+    version: 18
+    distribution: temurin
 
 git:
     user-name: pranay
