@@ -43,7 +43,7 @@ jobs:
 
   build:
     needs: parse-config
-    uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@feature
+    uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@main
     with:
       version: ${{ needs.parse-config.outputs.version }}
       project_dir: ${{ needs.parse-config.outputs.project_dir }}
