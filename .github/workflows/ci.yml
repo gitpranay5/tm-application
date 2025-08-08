@@ -39,6 +39,7 @@ jobs:
           echo "project_file=$project_file" >> "$GITHUB_OUTPUT"
 
   build:
+    needs: parse-config
     uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@feature
     with:
       version: ${{ needs.parse-config.outputs.version }}
