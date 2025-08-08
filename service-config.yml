@@ -7,7 +7,7 @@ service:
     language: multi-language
     
 project:
-    project_dir: java-project
+    project_dir: Java
     project_file: pom.xml
     version: 18
     distribution: temurin
