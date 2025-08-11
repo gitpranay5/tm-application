@@ -58,6 +58,8 @@ jobs:
       project_dir: ${{ needs.parse-config.outputs.project_dir }}
       project_file: ${{ needs.parse-config.outputs.project_file }}
       distribution: ${{ needs.parse-config.outputs.distribution }}
+      project_key: ${{ needs.parse-config.outputs.project_key }}
+      organization: ${{ needs.parse-config.outputs.organization }}
 
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
