@@ -7,11 +7,14 @@ service:
     language: multi-language
     
 project:
+    language: Java
     project_dir: Java
     project_file: pom.xml
     version: 18
     distribution: temurin
+    project_key: gitpranay5_tm-application
 
 git:
     user-name: pranay
     user-email: ex@gmail.com
+

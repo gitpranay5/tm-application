@@ -25,6 +25,8 @@ jobs:
       project_dir: ${{ steps.config.outputs.project_dir }}
       project_file: ${{ steps.config.outputs.project_file }}
       distribution: ${{ steps.config.outputs.distribution }}
+      language: ${{ steps.config.outputs.language }}
+      project_key: ${{ steps.config.outputs.project_key }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,10 +38,24 @@ jobs:
           project_dir=$(yq '.project.project_dir' service-config.yml)
           project_file=$(yq '.project.project_file' service-config.yml)
           distribution=$(yq '.project.distribution' service-config.yml)
+          language=$(yq '.project.language' service-config.yml)
+          project_key=$(yq '.service[0].name' service-config.yml)
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "project_dir=$project_dir" >> "$GITHUB_OUTPUT"
           echo "project_file=$project_file" >> "$GITHUB_OUTPUT"
           echo "distribution=$distribution" >> "$GITHUB_OUTPUT"
+          echo "language=$language" >> "$GITHUB_OUTPUT"
+          echo "project_key=$project_key" >> "$GITHUB_OUTPUT"
+  code-quality-check:
+    needs: parse-config
+    uses: gitpranay5/tm-reusable/.github/workflows/code-quality.yml@main
+    with:
+      language: ${{ needs.parse-config.outputs.language }}
+      version: ${{ needs.parse-config.outputs.version }}
+      project_dir: ${{ needs.parse-config.outputs.project_dir }}
+      project_file: ${{ needs.parse-config.outputs.project_file }}
+      distribution: ${{ needs.parse-config.outputs.distribution }}
+      project_key: ${{ needs.parse-config.outputs.project_key }}
 
   build:
     needs: parse-config
