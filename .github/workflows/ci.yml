@@ -56,9 +56,11 @@ jobs:
       project_file: ${{ needs.parse-config.outputs.project_file }}
       distribution: ${{ needs.parse-config.outputs.distribution }}
       project_key: ${{ needs.parse-config.outputs.project_key }}
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
-    needs: parse-config
+    needs: code-quality-check
     uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@main
     with:
       version: ${{ needs.parse-config.outputs.version }}
