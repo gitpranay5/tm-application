@@ -13,6 +13,7 @@ project:
     version: 18
     distribution: temurin
     project_key: gitpranay5_tm-application
+    organization: gitpranay5
 
 git:
     user-name: pranay

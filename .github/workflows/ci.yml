@@ -27,6 +27,7 @@ jobs:
       distribution: ${{ steps.config.outputs.distribution }}
       language: ${{ steps.config.outputs.language }}
       project_key: ${{ steps.config.outputs.project_key }}
+      organization: ${{ steps.config.outputs.organization }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -40,12 +41,14 @@ jobs:
           distribution=$(yq '.project.distribution' service-config.yml)
           language=$(yq '.project.language' service-config.yml)
           project_key=$(yq '.service[0].name' service-config.yml)
+          organization=$(yq '.project.organization' service-config.yml)
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "project_dir=$project_dir" >> "$GITHUB_OUTPUT"
           echo "project_file=$project_file" >> "$GITHUB_OUTPUT"
           echo "distribution=$distribution" >> "$GITHUB_OUTPUT"
           echo "language=$language" >> "$GITHUB_OUTPUT"
           echo "project_key=$project_key" >> "$GITHUB_OUTPUT"
+          echo "organization=$organization" >> "$GITHUB_OUTPUT"
   code-quality-check:
     needs: parse-config
     uses: gitpranay5/tm-reusable/.github/workflows/code-quality.yml@main
@@ -56,6 +59,7 @@ jobs:
       project_file: ${{ needs.parse-config.outputs.project_file }}
       distribution: ${{ needs.parse-config.outputs.distribution }}
       project_key: ${{ needs.parse-config.outputs.project_key }}
+      organization: ${{ needs.parse-config.outputs.organization }}
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
