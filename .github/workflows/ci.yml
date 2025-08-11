@@ -58,7 +58,7 @@ jobs:
       project_dir: ${{ needs.parse-config.outputs.project_dir }}
       project_file: ${{ needs.parse-config.outputs.project_file }}
       distribution: ${{ needs.parse-config.outputs.distribution }}
-      project_key: gitpranay5/tm-application
+      project_key: gitpranay5_tm-application
       organization: gitpranay5
 
     secrets:
