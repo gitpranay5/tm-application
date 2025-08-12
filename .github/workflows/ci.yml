@@ -1,0 +1,37 @@
+# This is my application ci workflow file
+
+name: CI
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+    workflow_dispatch:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+      types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@feat
+    with:
+      version: 18
+
+  code-quality-check:
+    needs: [build]
+    uses: gitpranay5/tm-reusable/.github/workflows/sonarqube-scan.yml@feat
+    with:
+      project_key: tm-application
+      organization: gitpranay5
+      language: java
+      source_dir: ${{ needs.build.outputs.project_dir }}
+    secrets:
+      sonar_token: ${{ secrets.SONAR_TOKEN }}
+
+  
+
