@@ -16,6 +16,6 @@ project:
     organization: gitpranay5
 
 git:
-    user-name: pranay
-    user-email: ex@gmail.com
+    user-name: guest
+    user-email: guest@example.com
 
