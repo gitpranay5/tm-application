@@ -20,7 +20,7 @@ jobs:
   build:
     uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@feat
     with:
-      version: 18
+      version: 17
 
   code-quality-check:
     needs: [build]
