@@ -31,7 +31,5 @@ jobs:
       language: java
       source_dir: ${{ needs.build.outputs.project_dir }}
     secrets:
-      sonar_token: ${{ secrets.SONAR_TOKEN }}
-
-  
+      SONAR_TOKEN: inherit
 
