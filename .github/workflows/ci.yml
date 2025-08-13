@@ -18,19 +18,6 @@ on:
 
 jobs:
   build:
-    uses: gitpranay5/tm-reusable/.github/workflows/java-build-service-config.yml@feat
+    uses: gitpranay5/tm-reusable/.github/workflows/build-service-config.yml@feat
     with:
       service_config_file: service-config.yml
-      service_name: application1
-
- # code-quality-check:
- #   needs: [build]
- #   uses: gitpranay5/tm-reusable/.github/workflows/sonarqube-scan.yml@feat
- #   with:
- #     project_key: tm-application
- #     organization: gitpranay5
- #     language: java
- #     source_dir: ${{ needs.build.outputs.project_dir }}
- #   secrets:
- #     SONAR_TOKEN: inherit
-

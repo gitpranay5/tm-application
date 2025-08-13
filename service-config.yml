@@ -15,12 +15,12 @@ services:
     distribution:
     project_dir: Python
     project_file: requirements.txt
+    
+  sonar:
+    sonar_organization: gitpranay5
+    sonar_project_key: tm-application
 
-sonar:
-  organization: gitpranay5
-  project_key: tm-application
-
-git:
-  user-name: guest-1
-  user-email: guest@example.com
+  git:
+    user-name: guest-1
+    user-email: guest@example.com
 
