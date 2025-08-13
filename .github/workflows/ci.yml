@@ -16,60 +16,8 @@ on:
         - main
       types: [opened, synchronize, reopened]
 
-
 jobs:
-  parse-config:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.config.outputs.version }}
-      project_dir: ${{ steps.config.outputs.project_dir }}
-      project_file: ${{ steps.config.outputs.project_file }}
-      distribution: ${{ steps.config.outputs.distribution }}
-      language: ${{ steps.config.outputs.language }}
-      project_key: ${{ steps.config.outputs.project_key }}
-      organization: ${{ steps.config.outputs.organization }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Parse service config
-        id: config
-        run: |
-          version=$(yq '.project.version' service-config.yml)
-          project_dir=$(yq '.project.project_dir' service-config.yml)
-          project_file=$(yq '.project.project_file' service-config.yml)
-          distribution=$(yq '.project.distribution' service-config.yml)
-          language=$(yq '.project.language' service-config.yml)
-          project_key=$(yq '.service[0].name' service-config.yml)
-          organization=$(yq '.project.organization' service-config.yml)
-          echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "project_dir=$project_dir" >> "$GITHUB_OUTPUT"
-          echo "project_file=$project_file" >> "$GITHUB_OUTPUT"
-          echo "distribution=$distribution" >> "$GITHUB_OUTPUT"
-          echo "language=$language" >> "$GITHUB_OUTPUT"
-          echo "project_key=$project_key" >> "$GITHUB_OUTPUT"
-          echo "organization=$organization" >> "$GITHUB_OUTPUT"
-  code-quality-check:
-    needs: parse-config
-    uses: gitpranay5/tm-reusable/.github/workflows/code-quality.yml@main
-    with:
-      language: ${{ needs.parse-config.outputs.language }}
-      version: ${{ needs.parse-config.outputs.version }}
-      project_dir: ${{ needs.parse-config.outputs.project_dir }}
-      project_file: ${{ needs.parse-config.outputs.project_file }}
-      distribution: ${{ needs.parse-config.outputs.distribution }}
-      project_key: gitpranay5_tm-application
-      organization: gitpranay5
-
-    secrets:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
   build:
-    needs: code-quality-check
-    uses: gitpranay5/tm-reusable/.github/workflows/java-build-bump.yml@main
+    uses: gitpranay5/tm-reusable/.github/workflows/multi-app-build.yml@feat
     with:
-      version: ${{ needs.parse-config.outputs.version }}
-      project_dir: ${{ needs.parse-config.outputs.project_dir }}
-      project_file: ${{ needs.parse-config.outputs.project_file }}
-      distribution: ${{ needs.parse-config.outputs.distribution }}
-
+      service_config_file: service-config.yml
