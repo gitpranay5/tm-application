@@ -21,6 +21,6 @@ services:
     sonar_project_key: tm-application
 
   git:
-    user-name: guest
+    user-name: ex
     user-email: guest@example.com
 
