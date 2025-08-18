@@ -5,7 +5,6 @@ services:
     name: Java Application
     language: java
     version: 18
-    distribution: temurin
     project_dir: Java
     project_file: pom.xml
   application2:
