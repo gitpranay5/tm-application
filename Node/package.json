@@ -1,0 +1,15 @@
+{
+  "name": "sample-node-app",
+  "version": "1.0.0",
+  "description": "A minimal Node.js app for CI/CD testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'No build step needed for this app'"
+  },
+  "author": "Pranay",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

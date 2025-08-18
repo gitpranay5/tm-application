@@ -5,22 +5,18 @@ services:
     name: Java Application
     language: java
     version: 18
-    distribution:
+    distribution: temurin
     project_dir: Java
     project_file: pom.xml
   application2:
     name: Python Application
     language: python
     version: 3.12
-    distribution:
     project_dir: Python
     project_file: requirements.txt
-    
-  sonar:
-    sonar_organization: gitpranay5
-    sonar_project_key: tm-application
-
-  git:
-    user-name: ex
-    user-email: guest@example.com
-
+  application3:
+    name: Node.js Application
+    language: node.js
+    version: 24
+    project_dir: Node
+    project_file: package.json
