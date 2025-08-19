@@ -19,3 +19,9 @@ services:
     version: 24
     project_dir: Node
     project_file: package.json
+  application4:
+    name: Go Application
+    language:
+    version: 
+    project_dir: 
+    project_file:
