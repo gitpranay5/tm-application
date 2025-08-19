@@ -1,21 +1,23 @@
 # This is a template for service configuration, which have the metadata and settings for the services.
 
-service:
-  - name: tm-application
-    description: This is the configuration for the tm-application service.
-    version: 1.0.0
-    language: multi-language application
-    
-project:
-    language: Java
+services:
+  application1:
+    name: Java Application
+    language: java
+    version: 17
     project_dir: Java
     project_file: pom.xml
+
+  application2:
+    name: Python Application
+    language: python
+    version: 3.12
+    project_dir: Python
+    project_file: requirements.txt 
+
+  application3:
+    name: Node.js Application
+    language: node.js
     version: 18
-    distribution: temurin
-    project_key: gitpranay5_tm-application
-    organization: gitpranay5
-
-git:
-    user-name: pranay
-    user-email: ex@gmail.com
-
+    project_dir: Node
+    project_file: package.json
