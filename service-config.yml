@@ -4,7 +4,7 @@ services:
   application1:
     name: Java Application
     language: java
-    version: 17
+    version: 18
     project_dir: Java
     project_file: pom.xml
 
