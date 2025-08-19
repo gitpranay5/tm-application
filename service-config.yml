@@ -4,7 +4,7 @@ services:
   application1:
     name: Java Application
     language: java
-    version: 18
+    version: 17
     project_dir: Java
     project_file: pom.xml
   application2:
@@ -13,15 +13,3 @@ services:
     version: 3.12
     project_dir: Python
     project_file: requirements.txt
-  application3:
-    name: Node.js Application
-    language: node.js
-    version: 24
-    project_dir: Node
-    project_file: package.json
-  application4:
-    name: Go Application
-    language:
-    version: 
-    project_dir: 
-    project_file:
