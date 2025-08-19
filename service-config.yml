@@ -13,11 +13,11 @@ services:
     language: python
     version: 3.12
     project_dir: Python
-    project_file: requirements.txt 
+    project_file: requirements.txt
 
   application3:
     name: Node.js Application
     language: node.js
-    version: 18
+    version: 24
     project_dir: Node
     project_file: package.json
