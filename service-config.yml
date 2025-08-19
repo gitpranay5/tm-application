@@ -4,14 +4,14 @@ services:
   application1:
     name: Java Application
     language: java
-    version: 18
+    version: 17
     project_dir: Java
     project_file: pom.xml
 
   application2:
     name: Python Application
     language: python
-    version: 3.12
+    version: 3.13
     project_dir: Python
     project_file: requirements.txt
 
